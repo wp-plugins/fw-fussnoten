@@ -3,7 +3,7 @@ Contributors: Tikolan
 Donate link: http://www.wieser.at/
 Tags: fussnoten, content
 Tested up to: 3.8.1
-Stable tag: 0.6
+Stable tag: 0.6.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,10 +44,13 @@ um Verschiedene Portfolios oder Fixe  Bereiche zu erstellen
 * Shortcode
 
 == Upgrade Notice ==
+=0.6.4 =
+* korrekturen
 
 = 0.6 =
 
 * Multifussnoten
 * Shortcode
+
 
 
