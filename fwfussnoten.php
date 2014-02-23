@@ -1,12 +1,12 @@
 <?php
 /*
 Plugin Name: FW Fussnoten
-Plugin URI: http://www.wieser.at/wordpress/plugins/fussnoten
+Plugin URI: http://wordpress.org/plugins/fw-fussnoten
 Description: Fussnote unter Beiträge, Verwendung ist für Fixe Texte, Bilder, und auch für Shortcodes.
 Flexible können Fussnoten erstellt werden, dabei wird als Selektor Kategorie verwendet, somit
 wird die Fussnoten bei allen Beiträgen mit der selben Kategorie verwenden.
 als Shortcode liefert diese Plugin [cf name="metafeldname"] mit
-Version: 0.6
+Version: 0.6.4
 Author: Franz Wieser
 Author URI: http://www.wieser.at/
 Update Server: http://www.wieser.at/wordpress/plugins/
@@ -21,14 +21,14 @@ function fw_fussnote_custom_post_type() {
 		'singular_name'       => _x( 'fussnote', 'Post Type Singular Name', 'text_domain' ),
 		'menu_name'           => __( 'fussnote', 'text_domain' ),
 		'parent_item_colon'   => __( 'Parent Item:', 'text_domain' ),
-		'all_items'           => __( 'All Items', 'text_domain' ),
-		'view_item'           => __( 'View Item', 'text_domain' ),
-		'add_new_item'        => __( 'Add New Item', 'text_domain' ),
-		'add_new'             => __( 'Add New', 'text_domain' ),
-		'edit_item'           => __( 'Edit Item', 'text_domain' ),
+		'all_items'           => __( 'Alle Fussnoten', 'text_domain' ),
+		'view_item'           => __( 'Zeige Fussnoten', 'text_domain' ),
+		'add_new_item'        => __( 'Fussnote hinzufügen', 'text_domain' ),
+		'add_new'             => __( 'hinzufügen', 'text_domain' ),
+		'edit_item'           => __( 'bearbeiten fussnote', 'text_domain' ),
 		'update_item'         => __( 'Update Item', 'text_domain' ),
-		'search_items'        => __( 'Search Item', 'text_domain' ),
-		'not_found'           => __( 'Not found', 'text_domain' ),
+		'search_items'        => __( 'Suche fusnoten', 'text_domain' ),
+		'not_found'           => __( 'nicht gefunden', 'text_domain' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
 	);
 	$args = array(
@@ -108,7 +108,7 @@ if($categories){
            $curpostid=get_the_ID();
          //  $feld1meta=get_post_meta(get_the_ID(),'eintrag',true);
           // $fusscontent.='Fussnote:'.get_the_title().''.$feld1meta.'<br/>';
-           $fusscontent.=get_the_content();
+           $fusscontent.=wpautop(get_the_content());
            //$my_query->post_content;
 }
 }
@@ -347,7 +347,7 @@ extract(shortcode_atts(array(
            $curpostid=get_the_ID();
          //  $feld1meta=get_post_meta(get_the_ID(),'eintrag',true);
           // $fusscontent.='Fussnote:'.get_the_title().''.$feld1meta.'<br/>';
-           $fcontent.=get_the_content();
+           $fcontent.=wpautop(get_the_content());
            //$my_query->post_content;
 }
 }
